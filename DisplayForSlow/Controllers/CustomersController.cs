@@ -15,6 +15,8 @@ namespace DisplayForSlow.Controllers
 
         static CustomersController()
         {
+            var _TestNullable = Enumerable.Range(1,2).Select(x => new TestNullable() { Id = x, Name = "Name " + x }).ToList();
+
             _customers = Enumerable
                 .Range(1, 500)
                 .Select(i =>
@@ -36,6 +38,10 @@ namespace DisplayForSlow.Controllers
                     if (i % 2 == 0)
                     {
                         customer.Address.Zipcode = i;
+                    }
+
+                    if (i % 10 <= 1) {
+                        customer.TestNullable = _TestNullable[i % 10];
                     }
 
                     return customer;

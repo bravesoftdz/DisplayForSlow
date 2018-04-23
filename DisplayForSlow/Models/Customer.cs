@@ -11,5 +11,9 @@ namespace DisplayForSlow.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Address Address { get; set; }
+
+        public int? TestNullableId { get; set; }
+
+        public virtual TestNullable TestNullable { get; set; }
     }
 }
